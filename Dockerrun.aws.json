@@ -1,0 +1,39 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "plonzar/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "server",
+            "image": "plonzar/multi-server",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "plonzar/multi-nginx",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [
+                "client",
+                "server"
+            ]
+        },    
+        {
+            "name": "worker",
+            "image": "plonzar/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        }
+    ]
+}
