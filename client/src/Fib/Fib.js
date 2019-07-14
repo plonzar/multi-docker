@@ -12,6 +12,10 @@ class Fib extends React.Component {
     }
 
     componentDidMount() {
+        this.fetchData();
+    }
+
+    fetchData() {
         this.fetchValues();
         this.fetchIndexes();
     }
@@ -41,6 +45,8 @@ class Fib extends React.Component {
         });
 
         this.setState({index: ''});
+
+        await this.fetchData();
     }
 
     seenIndexes() {
