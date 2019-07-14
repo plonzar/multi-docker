@@ -1,0 +1,17 @@
+{
+  "name": "cmoplex",
+  "version": "1.0.0",
+  "description": "Very, very complex app that calculate Fibbonaci's number at specyfic index",
+  "main": "index.js",
+  "author": "Docker-student",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js",
+    "start:watch": "nodemon"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "1.19.1",
+    "redis": "2.8.0"
+  }
+}
