@@ -50,17 +50,25 @@ class Fib extends React.Component {
     }
 
     seenIndexes() {
-        return (<span>{this.state.seenIndexes.map(x => x.number).join(', ')}</span>);
+        try {
+            return (<span>{this.state.seenIndexes.map(x => x.number).join(', ')}</span>);
+        } catch (error) {
+            return (<span></span>);
+        }
     }
 
     caluclatedValues() {
-        const entries = Object.entries(this.state.values);
-
-        return entries.map(([index, value]) => (
-            <div key={index}>
-                For index: {index} I calculated {value}
-            </div>
-        ));
+        try {
+            const entries = Object.entries(this.state.values);
+            
+            return entries.map(([index, value]) => (
+                <div key={index}>
+                    For index: {index} I calculated {value}
+                </div>
+            ));
+        } catch (error) {
+            return (<div></div>)
+        }
     }
 
     render() {
